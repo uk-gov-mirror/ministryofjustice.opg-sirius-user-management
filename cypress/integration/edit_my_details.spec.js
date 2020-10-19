@@ -13,6 +13,8 @@ describe("Edit my details", () => {
         cy.get("#f-phonenumber").clear().type("123456789");
         cy.get("button[type=submit]").click();
 
-        cy.contains(".moj-banner", "You have successfully edited your details.");
+        cy.contains(".moj-banner", "You have successfully edited your details.", {
+            timeout: 10000,
+        });
     });
 });
