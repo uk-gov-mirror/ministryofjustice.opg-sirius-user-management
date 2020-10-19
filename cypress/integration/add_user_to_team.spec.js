@@ -5,8 +5,26 @@ describe("Add a user to a team", () => {
         cy.visit("/teams/add-member/65");
     });
 
-    it("shows search button", () => {
-        cy.contains(".govuk-button", "Search")
+    it("allows me to search for a user", () => {
+        cy.get(".govuk-table").should("not.exist");
+
+        cy.get("#f-search").clear().type("admin");
+        cy.get("button[type=submit]").click();
+
+        cy.get(".govuk-table__row").should("have.length", 2);
+
+        const expected = [
+            "system admin",
+            "system.admin@opgtest.com",
+            "Active",
+            "Edit",
+        ];
+
+        // cy.get(".govuk-table__body > .govuk-table__row")
+        //     .children()
+        //     .each(($el, index) => {
+        //         cy.wrap($el).should("contain", expected[index]);
+        //     });
     });
     
 });
