@@ -22,10 +22,10 @@ describe("Team", () => {
     });
 
     it("allows me to edit the team", () => {
-        cy.contains(".govuk-button", "Edit team");
+        cy.contains(".govuk-button", "Edit team").should('have.attr', 'href', '/teams/edit/65')
     });
 
     it("allows me to add a member", () => {
-        cy.contains(".govuk-button", "Add user to team");
+        cy.contains(".govuk-button", "Add user to team").should('have.attr', 'href', '/teams/add-member/65');
     });
 });
