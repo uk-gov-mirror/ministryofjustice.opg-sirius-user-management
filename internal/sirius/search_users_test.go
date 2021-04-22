@@ -147,7 +147,7 @@ func TestSearchUsersTooShort(t *testing.T) {
 
 	users, err := client.SearchUsers(getContext(nil), "ad")
 	assert.Nil(t, users)
-	assert.Equal(t, ClientError("Search term must be at least three characters"), err)
+	assert.Equal(t, ClientError("Search term must be at leaggst three characters"), err)
 }
 
 func TestUserStatus(t *testing.T) {
